@@ -1,0 +1,20 @@
+set relativenumber
+
+nnoremap qq :q!<CR>
+nnoremap Q :wq<CR>
+nnoremap W :w<CR>
+inoremap jk <Esc>
+vnoremap v <C-v>
+nnoremap <Space> :
+
+nnoremap s <Nop>
+
+nnoremap sv :vsplit<CR>
+nnoremap sh :split<CR>
+nnoremap sc <C-w>c
+nnoremap so <C-w>o
+
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l

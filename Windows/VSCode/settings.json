@@ -10,11 +10,8 @@
     "editor.multiCursorLimit": 100,
     "editor.hover.delay": 100,
     "editor.unicodeHighlight.ambiguousCharacters": false,
-    // Formatting and auto-actions
-    "editor.formatOnSave": true,
     "editor.formatOnType": false,
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 120,
     // Visual aids
     "editor.rulers": [
         80,
@@ -51,7 +48,7 @@
     "workbench.layoutControl.enabled": false,
     // Unified font size settings
     "scm.inputFontSize": 15,
-    "notebook.output.fontSize": 16,
+    "notebook.output.fontSize": 13,
     "debug.console.fontSize": 16,
     "chat.editor.fontSize": 16,
     "chat.fontSize": 16,
@@ -252,7 +249,7 @@
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "javascript.updateImportsOnFileMove.enabled": "always",
+    "js.updateImportsOnFileMove.enabled": "always",
     // C/C++
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, IndentWidth: 4, BreakBeforeBraces: Attach}",
     "C_Cpp.intelliSenseEngine": "Tag Parser",
@@ -320,6 +317,19 @@
         "UsableXAI": "linux",
         "connect.beijinga.seetacloud.com": "linux",
         "AutoDL": "linux",
-        "192.168.1.101": "linux"
-    }
+        "192.168.1.101": "linux",
+        "Omarchy": "linux",
+        "Cloud": "linux"
+    },
+    "todo-tree.general.showActivityBarBadge": true,
+    "editor.wordWrapColumn": 120,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "chat.viewSessions.orientation": "stacked",
+    "roo-cline.debug": false,
+    "claudeCode.preferredLocation": "panel"
 }
