@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>我的RSS订阅</title>
+    <dateCreated>Wed, 25 Mar 2026 00:00:00 GMT</dateCreated>
+  </head>
+  <body>
+    <!-- 新闻类 -->
+    <outline text="新闻" title="新闻">
+      <outline text="环球时报" title="环球时报" type="rss" xmlUrl="https://plink.anyfeeder.com/weixin/hqsbwx"/>
+      <outline text="联合早报" title="联合早报" type="rss" xmlUrl="https://plink.anyfeeder.com/zaobao/realtime/world"/>
+      <outline text="华尔街见闻" title="华尔街见闻" type="rss" xmlUrl="https://plink.anyfeeder.com/weixin/wallstreetcn"/>
+      <outline text="中新网国际新闻" title="中新网国际新闻" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/world.xml"/>
+      <outline text="中新网时政新闻" title="中新网时政新闻" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/china.xml"/>
+      <outline text="中新网社会新闻" title="中新网社会新闻" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/society.xml"/>
+      <outline text="中新网即时新闻" title="中新网即时新闻" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/scroll-news.xml"/>
+      <outline text="中新网财经新闻" title="中新网财经新闻" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/finance.xml"/>
+      <outline text="中新网要闻导读" title="中新网要闻导读" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/importnews.xml"/>
+      <outline text="中新网生活" title="中新网生活" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/life.xml"/>
+      <outline text="中新网东西问" title="中新网东西问" type="rss" xmlUrl="https://www.chinanews.com.cn/rss/dxw.xml"/>
+    </outline>
+
+    <!-- 技术类 -->
+    <outline text="技术" title="技术">
+      <outline text="少数派" title="少数派" type="rss" xmlUrl="https://sspai.com/feed"/>
+      <outline text="美团技术团队" title="美团技术团队" type="rss" xmlUrl="https://tech.meituan.com/feed/"/>
+      <outline text="All Things Distributed" title="All Things Distributed" type="rss" xmlUrl="https://www.allthingsdistributed.com/atom.xml"/>
+      <outline text="Electronics etc..." title="Electronics etc..." type="rss" xmlUrl="https://tomverbeure.github.io/feed.xml"/>
+      <outline text="NVIDIA 技术博客" title="NVIDIA 技术博客" type="rss" xmlUrl="https://developer.nvidia.cn/blog/feed"/>
+      <outline text="NVIDIA 英伟达博客" title="NVIDIA 英伟达博客" type="rss" xmlUrl="https://blogs.nvidia.cn/feed/"/>
+      <outline text="新闻 分类 | NVIDIA 英伟达博客" title="新闻 分类 | NVIDIA 英伟达博客" type="rss" xmlUrl="https://blogs.nvidia.cn/blog/category/news/feed/"/>
+    </outline>
+
+    <!-- 读书类 -->
+    <outline text="读书" title="读书">
+      <outline text="豆瓣最受欢迎的书评" title="豆瓣最受欢迎的书评" type="rss" xmlUrl="https://www.douban.com/feed/review/book"/>
+    </outline>
+
+    <!-- 人工智能类 -->
+    <outline text="人工智能" title="人工智能">
+      <outline text="Google AI" title="Google AI" type="rss" xmlUrl="https://blog.google/technology/ai/rss/"/>
+      <outline text="OpenAI News" title="OpenAI News" type="rss" xmlUrl="https://openai.com/news/rss.xml"/>
+    </outline>
+
+    <!-- 其它类 -->
+    <outline text="其它" title="其它">
+      <outline text="中国国家地理" title="中国国家地理" type="rss" xmlUrl="https://plink.anyfeeder.com/weixin/dili360"/>
+      <outline text="环球科学" title="环球科学" type="rss" xmlUrl="https://plink.anyfeeder.com/weixin/ScientificAmerican"/>
+    </outline>
+  </body>
+</opml>
