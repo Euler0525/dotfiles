@@ -15,7 +15,3 @@ alias ka='zellij ka'
 ## Tools
 alias lg="lazygit"
 alias ld="lazydocker"
-
-## Config
-# x-cmd
-[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
