@@ -1,0 +1,7 @@
+[user]
+    name = Euler0525
+    email = euler0525@139.com
+[core]
+    editor = vim
+    autocrlf = false
+    eol = lf
