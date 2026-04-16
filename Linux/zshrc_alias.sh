@@ -1,5 +1,6 @@
 ## Basic
 alias ls="eza"
+alias ll="joshuto"
 alias cls="echo > ~/.bash_history && echo > ~/.zsh_history && echo > ~/.python_history && clear"
 alias vim='nvim'
 alias git='bit'

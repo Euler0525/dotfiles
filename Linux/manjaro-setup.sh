@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# Manjaro/Arch Setup Script (single-file)
+# Manjaro/Arch Setup Script
 # Author: Euler0525
-# Usage: ./manjaro-setup.sh
+# Usage: sh -x manjaro-setup.sh
 # ==============================================================================
 set -euo pipefail
 
@@ -39,7 +39,6 @@ zshrc_block() {
 # ==============================================================================
 [[ $EUID -eq 0 ]] && fail "Do not run as root"
 [[ ! -f /etc/manjaro-release && ! -f /etc/arch-release ]] && fail "Only Manjaro/Arch supported"
-ping -c 1 -W 3 archlinux.org &>/dev/null || fail "No network connection"
 
 # Sudo keepalive
 sudo -v || fail "Cannot acquire sudo"
@@ -60,7 +59,7 @@ sudo sed -i '/^#ParallelDownloads/s/^#//' /etc/pacman.conf 2>/dev/null || true
 run sudo pacman-mirrors -i -c China -m rank
 run sudo pacman -Syy
 run sudo pacman -Syu --noconfirm
-run sudo pacman -S --needed --noconfirm base-devel git wget curl unzip zip tar gzip
+run sudo pacman -S --needed --noconfirm base-devel git wget curl unzip zip tar gzip net-tools
 
 if ! command -v yay &>/dev/null; then
   info "Building yay from AUR..."
@@ -78,7 +77,7 @@ fi
 # ==============================================================================
 info "=== Step 2/8: CLI tools & zsh ==="
 
-run yay -S --needed --noconfirm tldr htop btop fastfetch tree
+run yay -S --needed --noconfirm tldr htop btop fastfetch tree debtap
 
 if [[ "$SHELL" != *"zsh"* ]]; then
   chsh -s "$(command -v zsh)"
@@ -97,25 +96,19 @@ if ! command -v x &>/dev/null; then
 fi
 
 zshrc_block "x-cmd" <<'EOF'
-[ -f "$HOME/.x-cmd/init.zsh" ] && . "$HOME/.x-cmd/init.zsh"
+[ ! -f "$HOME/.x-cmd.root/X" ] || . "$HOME/.x-cmd.root/X" # boot up x-cmd.
 EOF
 
-run source ~/.zshrc
-
-for tool in zellij eza bottom; do
+for tool in zellij bit nvim; do
   command -v "$tool" &>/dev/null && continue
-  x install "$tool" || fail "x install $tool failed"
+  ___x_cmd env use "$tool" || fail "x install $tool failed"
   ok "Installed $tool"
 done
 
 # ==============================================================================
-# Step 4: Dev environment (Neovim, Node, Python, Rust)
+# Step 4: Dev environment (Node, Rust)
 # ==============================================================================
 info "=== Step 4/8: Dev environment ==="
-
-# Neovim
-run x env use bit
-run x env use nvim
 
 # NVM & Node
 run yay -S --needed --noconfirm nvm
@@ -129,19 +122,14 @@ export NVM_DIR="$HOME/.nvm"
 
 if ! command -v node &>/dev/null; then
   run nvm install --lts
-  run nvm use --lts
+  run nvm use default
 fi
 run npm install -g pnpm yarn tsx nodemon
 
-# Python (uv)
-if ! command -v uv &>/dev/null; then
-  run bash -c "curl -fsSL https://astral.sh/uv/install.sh | sh"
-fi
-zshrc_block "uv" <<'EOF'
-eval "$(uv generate-shell-completion zsh)" 2>/dev/null || true
-EOF
-
 # Rust
+RUSTUP_DIS_SERVER="https://rsproxy.cn"
+RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+
 if ! command -v rustup &>/dev/null; then
   run bash -c "curl --proto '=https' --tlsv1.2 -fsSL https://sh.rustup.rs | sh -s -- -y"
 fi
@@ -191,14 +179,8 @@ info "=== Step 7/8: Security ==="
 
 run yay -S --needed --noconfirm ufw tailscale openssh
 
-run sudo ufw allow 22/tcp
 run sudo ufw default deny incoming
 run sudo ufw enable
-
-sudo sed -i 's/^#Port 22/Port 22/' /etc/ssh/sshd_config 2>/dev/null || true
-run sudo systemctl enable --now sshd
-ok "SSH enabled on port 22"
-
 info "Tailscale installed. Run manually: sudo tailscale up"
 
 # ==============================================================================
@@ -237,6 +219,8 @@ if ! grep -q "$marker" ~/.zshrc 2>/dev/null; then
   ok "dotfiles alias appended to ~/.zshrc"
 fi
 
+run source ~/.zshrc
+
 # ==============================================================================
 # Done
 # ==============================================================================
@@ -249,3 +233,10 @@ echo "  2. systemctl reboot"
 echo "  3. nvim --headless +Lazy!sync +qa"
 echo "  4. newgrp docker  (or re-login for Docker)"
 echo "  5. sudo tailscale up"
+
+
+run sudo chmod 600 ~/.ssh/id_*
+run sudo chmod 644 ~/.ssh/*.pub
+run sudo chmod 700 ~/.ssh
+
+run cargo install --git https://github.com/kamiyaa/joshuto.git --force
