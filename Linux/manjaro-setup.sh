@@ -152,25 +152,7 @@ ok "Added $USER to docker group (re-login to apply)"
 # ==============================================================================
 info "=== Step 6/8: Fonts & input method ==="
 
-run yay -S --needed --noconfirm noto-fonts-cjk noto-fonts-emoji ttf-jetbrains-mono-nerd
-run yay -S --needed --noconfirm fcitx5 fcitx5-configtool fcitx5-chinese-addons fcitx5-qt fcitx5-gtk fcitx5-rime rime-ice-git
-
-mkdir -p ~/.local/share/fcitx5/rime
-cat > ~/.local/share/fcitx5/rime/default.custom.yaml << 'EOF'
-patch:
-  __include: rime_ice_suggestion:/
-  __patch:
-    key_binder/bindings/+:
-      - { when: paging, accept: comma, send: Page_Up }
-      - { when: has_menu, accept: period, send: Page_Down }
-EOF
-ok "Rime config written"
-
-zshrc_block "fcitx5" <<'EOF'
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-EOF
+#TODO fcitx5-rime
 
 paru -S maplemono-ttf --noconfirm
 
