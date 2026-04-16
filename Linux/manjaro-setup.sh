@@ -77,7 +77,7 @@ fi
 # ==============================================================================
 info "=== Step 2/8: CLI tools & zsh ==="
 
-run yay -S --needed --noconfirm tldr htop btop fastfetch tree debtap
+run yay -S --needed --noconfirm tldr htop btop fastfetch tree debtap paru
 
 if [[ "$SHELL" != *"zsh"* ]]; then
   chsh -s "$(command -v zsh)"
@@ -171,6 +171,8 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 EOF
+
+paru -S maplemono-ttf --noconfirm
 
 # ==============================================================================
 # Step 7: Security (UFW, SSH, Tailscale)
