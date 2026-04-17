@@ -1,3 +1,4 @@
 [submodule "submodules/nvim-config"]
-	path = submodules/nvim-config
-	url = git@github.com:Euler0525/nvim-config.git
+    path = submodules/nvim-config
+    url = https://github.com/Euler0525/nvim-config.git
+    url = git@github.com:Euler0525/nvim-config.git
