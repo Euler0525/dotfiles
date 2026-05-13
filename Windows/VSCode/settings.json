@@ -60,8 +60,8 @@
     "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
     "terminal.external.windowsExec": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
     "terminal.integrated.cursorStyle": "line",
-    "terminal.integrated.fontSize": 16,
-    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.fontFamily": "Maple Mono NF",
     "terminal.integrated.commandsToSkipShell": [
         "matlab.interrupt"
     ],
@@ -140,17 +140,16 @@
             "commands": [
                 ":w"
             ]
-        },
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
         {
             "before": [
                 "v"
             ],
             "after": [
-                "<esc>",
-                "C-v"
-            ],
-            "command": "-visualmode",
-            "when": "editorTextFocus && !editorReadonly"
+                "<C-v>"
+            ]
         }
     ],
     "vim.commandLineModeKeyBindingsNonRecursive": [],
@@ -331,5 +330,6 @@
     },
     "chat.viewSessions.orientation": "stacked",
     "roo-cline.debug": false,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "editor.formatOnSave": true
 }
