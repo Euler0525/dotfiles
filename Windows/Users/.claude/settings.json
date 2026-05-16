@@ -94,7 +94,6 @@
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(sudo:*)",
-      "Write(/Users/changyou/.ssh/*)",
       "Edit(.env.production)",
       "Edit(.env.prod)",
       "Read(.env.production)"
