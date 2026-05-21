@@ -123,6 +123,10 @@
         "command": "debugpy.debugInTerminal"
     },
     {
+        "key": "f11",
+        "command": "C_Cpp.BuildAndDebugFile"
+    },
+    {
         "key": "ctrl+alt+l",
         "command": "-bookmarks.jumpToNext",
         "when": "editorTextFocus"
@@ -195,5 +199,9 @@
     {
         "key": "ctrl+shift+t",
         "command": "-workbench.action.reopenClosedEditor"
+    },
+    {
+        "key": "f10",
+        "command": "C_Cpp.BuildAndRunFile"
     },
 ]
